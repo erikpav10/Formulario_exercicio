@@ -8,16 +8,22 @@ form.addEventListener('submit', function(e) {
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputemailAtividade = document.getElementById('email-atividade');
 
-    linha = '<tr>';
-    linha += `<td>${inputNomeAtividade.value}<td>`;
-    linha += `<td>${inputemailAtividade.value}<td>`;
-    linha += '<tr>';
+    const newRow = document.createElement('tr');
 
+    // Cria e anexa table cells com valores de entrada
+    const cellNome = document.createElement('td');
+    cellNome.textContent = inputNomeAtividade.value;
+    newRow.appendChild(cellNome);
 
+    const cellEmail = document.createElement('td');
+    cellEmail.textContent = inputemailAtividade.value;
+    newRow.appendChild(cellEmail);
+
+   // Acrescenta a nova linha ao corpo da tabela
     const corpotabela = document.querySelector('tbody');
-    corpotabela.innerHTML = linha;
+    corpotabela.appendChild(newRow);
 
+   // Reseta valores dos input
     inputNomeAtividade.value = '';
     inputemailAtividade.value = '';
 });
-
